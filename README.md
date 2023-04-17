@@ -2,7 +2,7 @@
 
 [中文](./README.zh_cn.md)
 
-A Guide to Sending Messages to Trilium via Shortcuts
+A Guide to Sending Messages to Trilium via Apple Shortcuts
 
 ## Prerequisites
 
