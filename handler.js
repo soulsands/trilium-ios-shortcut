@@ -4,8 +4,8 @@ let {title, content, labelString} = req.body;
 if (req.method == "POST") {
     // try to create under a note with label - messageInbox, you can rename it .
     let messageInbox = api.getNoteWithLabel("messageInbox");
-    // fallback to day note
     if (!messageInbox) {
+        // fallback to day note
         messageInbox = api.getDayNote(api.dayjs().format("YYYY-MM-DD"));
     }
 
@@ -14,25 +14,28 @@ if (req.method == "POST") {
     }
 
     if (!content) {
-        throw new Error("message content is empty");
+        content = '';
+    } else {
+        // normalize \n from message
+        content = content.split('\n').reduce((final, block) => {return final += `<p>${block}</p>`;}, '');
     }
-
-    // normalize \n from message
-    const finalContent = content.split('\n').reduce((final, block) => {return final += `<p>${block}</p>`;}, '');
 
     const {note} = api.createNewNote({
         parentNoteId: messageInbox.noteId,
         title,
-        content: finalContent,
+        content,
         type: "text"
     });
+    const labels = labelString.replace(/\n/g, '').split("#");
+    const trimedLabels = labels.map(label => label.trim()).filter(label => label);
+    if (trimedLabels.length) {
+        trimedLabels.forEach((label) => {
+            const [name, value] = label.split(' ');
 
-    const labels = labelString.replace(/\n/g, '').split("#")
-    const hasLabel = labels.some(label => !!label.trim())
-    if (hasLabel) {
-        labels.forEach((label) => {
-            if (label.trim()) {
-                note.setLabel(label.trim());
+            if (value) {
+                note.setLabel(name, value);
+            } else {
+                note.setLabel(name);
             }
         });
     } else {

@@ -26,8 +26,9 @@ This guide has been tested with iOS 15.5, but may also work with iOS 13. Feedbac
   - Enter directly
 - Support for configuring fixed titles; fixed titles are used directly after configuration.
 - Support for configuring optional titles; select "custom" to manually enter the title.
-- Multiple default tags can be set; notes sent will be accompanied by default tags after being set.
-- Configurable optional tag groups; supports enabling or disabling tag group selection.
+- Multiple default labels can be set; notes sent will be accompanied by default labels after being set.
+- Labels support both individual #name and #name=value.
+- Configurable optional label groups; supports enabling or disabling labelgroup selection.
 
 ## Custom API:
 
