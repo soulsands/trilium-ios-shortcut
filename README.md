@@ -23,7 +23,7 @@ This guide has been tested with iOS 15.5, but may also work with iOS 13. Feedbac
   - Clear clipboard
   - Quote clipboard content
   - Quote clipboard content (clear after success)
-  - Enter directly
+  - Input directly
 - Support for configuring fixed titles; fixed titles are used directly after configuration.
 - Support for configuring optional titles; select "custom" to manually enter the title.
 - Multiple default labels can be set; notes sent will be accompanied by default labels after being set.
@@ -59,7 +59,7 @@ This creates an API that can be used to create notes.
 
 ### Apple device
 
-1. Open [this link]() on your mobile device to get the shortcut.
+1. Open [this link](https://www.icloud.com/shortcuts/b04a8d3574b543c3ae35ff74bd772d6b) on your mobile device to get the shortcut.
 2. Follow the instructions to install and configure the shortcut.
 3. If prompted for permissions, grant them.
 
