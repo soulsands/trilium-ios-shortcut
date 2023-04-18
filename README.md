@@ -6,35 +6,35 @@ A Guide to Sending Messages to Trilium via Apple Shortcuts
 
 ## Prerequisites
 
-To use this guide, you will need: 
+To use this guide, you will need:
 
-- An Apple device with the Shortcuts app installed.
-- A Trilium server installed.
+-   An Apple device with the Shortcuts app installed.
+-   A Trilium server installed.
 
-This guide has been tested with iOS 15.5, but may also work with iOS 13. Feedback is appreciated. 
+This guide has been tested with iOS 15.5, but may also work with iOS 13. Feedback is appreciated.
 
 ## Features of the shortcut:
 
- This shortcut allows you to: 
+This shortcut allows you to:
 
-- Type and send text content.
-- Select and save any text content for sharing.
-- Support voice input.
-- Support for reading clipboard content and sending it; can be configured to enable or disable. After reading the clipboard, four options are available:
-  - Clear clipboard
-  - Quote clipboard content
-  - Quote clipboard content (clear after success)
-  - Input directly
-- Support for configuring fixed titles; fixed titles are used directly after configuration.
-- Support for configuring optional titles; select "custom" to manually enter the title.
-- Multiple default labels can be set; notes sent will be accompanied by default labels after being set.
-- Labels support both individual #name and #name=value.
-- Configurable optional label groups; supports enabling or disabling labelgroup selection.
-- If sending fails, you can choose to save it to the clipboard or Apple notes.
+-   Type and send text content.
+-   Select and save any text content for sharing.
+-   Support voice input（already supported by the default keyborad, can be turned off).
+-   Support for reading clipboard content and sending it; can be configured to enable or disable. After reading the clipboard, four options are available:
+    -   Clear clipboard
+    -   Quote clipboard content
+    -   Quote clipboard content (clear after success)
+    -   Input directly
+-   Support for configuring fixed titles; fixed titles are used directly after configuration.
+-   Support for configuring optional titles; select "custom" to manually enter the title.
+-   Multiple default labels can be set; notes sent will be accompanied by default labels after being set.
+-   Labels support both individual #name and #name=value.
+-   Configurable optional label groups; supports enabling or disabling labelgroup selection.
+-   If sending fails, you can choose to save it to the clipboard or Apple notes.
 
 ## Custom API:
 
-To learn more about the custom API, please see the [documentation](https://github.com/zadam/trilium/wiki/Custom-request-handler). 
+To learn more about the custom API, please see the [documentation](https://github.com/zadam/trilium/wiki/Custom-request-handler).
 
 This feature is more powerful than what is displayed in the documentation, as it can directly import files from the project.
 
@@ -46,7 +46,7 @@ This method can be used to access unexposed features, but may also cause some un
 
 ## Custom request handler file
 
- To create a custom request handler file, please use the [handler](./handler.js). This is the most basic method, but you can also create your own logic, such as adding a clone. 
+To create a custom request handler file, please use the [handler](./handler.js). This is the most basic method, but you can also create your own logic, such as adding a clone.
 
 ## Instructions
 
@@ -57,11 +57,11 @@ This method can be used to access unexposed features, but may also cause some un
 3. Add a tag `#customRequestHandler={any_string}`.
 4. Copy the code from the [handler](./handler.js) file into the note.
 
-This creates an API that can be used to create notes. The request path, which is to be filled in the shortcut, is  `{your server}/custom/{the any_string saved early}`.
+This creates an API that can be used to create notes. The request path to fill in the shortcut is `{your server}/custom/{the any_string setted early}`.
 
 ### Apple device
 
-1. Open [this link](https://www.icloud.com/shortcuts/f78f13395a5245b4a330227c8fef4087) on your mobile device to get the shortcut.
+1. Open [this link](https://www.icloud.com/shortcuts/d8e81f528edb4593a4ae1e6574705d25) on your mobile device to get the shortcut.
 2. Follow the instructions to install and configure the shortcut.
 3. If prompted for permissions, grant them.
 
@@ -73,12 +73,12 @@ You can now enjoy sending messages to your Trilium server anytime, anywhere!
 
 This shortcut provides very flexible usage methods.
 
-- If you just want to quickly send content without dealing with titles and labels, you can enable fixed titles and configure default labels, and then disable the "selectLabels" option.
-- If you want to modify the title and labels before sending, you can disable fixed titles and enable "selectLabels", which will provide a very flexible input experience.
+-   If you just want to quickly send content without dealing with titles and labels, you can enable fixed titles and configure default labels, and then disable the "selectLabels" option.
+-   If you want to modify the title and labels before sending, you can disable fixed titles and enable "selectLabels", which will provide a very flexible input experience.
 
 When entering the body text, you can choose to directly input or use quoted input, and the source of the quote can be system input or clipboard content. When using quoted input, the command will use `---` as a separator. You can also modify the quoted input method in the shortcut.
 
-You can add the shortcut to the main screen or to the assistive touch. To add it to the assistive touch, go to `Settings-General-Accessibility-Assistive Touch`.
+You can add the shortcut to the main screen or to the assistive touch. To add it to the assistive touch, go to `Settings-Accessibility-Assistive Touch`.
 
 When using the system share function, you can find the shortcut and add it to your favorites. This way, you can pin it to the top in the edit menu for easier access.
 
