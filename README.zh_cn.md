@@ -61,7 +61,7 @@ const htmlSanitizer = require("../services/html_sanitizer");
 
 ### 苹果设备
 
-1. 用手机打开[链接](https://www.icloud.com/shortcuts/07091913187c40d4a4e2362745626a2d)获取快捷指令
+1. 用手机打开[链接](https://www.icloud.com/shortcuts/3c8bf47b20aa4b6e88cff1452e704729)获取快捷指令
 2. 跟随指南操作。
 3. 如果启用权限请允许。
 
