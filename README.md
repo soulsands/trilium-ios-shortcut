@@ -61,7 +61,7 @@ This creates an API that can be used to create notes. The request path to fill i
 
 ### Apple device
 
-1. Open [this link](https://www.icloud.com/shortcuts/d8e81f528edb4593a4ae1e6574705d25) on your mobile device to get the shortcut.
+1. Open [this link](https://www.icloud.com/shortcuts/a7b7a88e67024d00a3b1d2e43306898b) on your mobile device to get the shortcut.
 2. Follow the instructions to install and configure the shortcut.
 3. If prompted for permissions, grant them.
 
