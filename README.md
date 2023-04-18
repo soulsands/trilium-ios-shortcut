@@ -54,10 +54,10 @@ This method can be used to access unexposed features, but may also cause some un
 
 1. First create a new note or use an existing one.
 2. Change the type to `JS backend`.
-3. Add a tag `#customRequestHandler={any_address}`.
+3. Add a tag `#customRequestHandler={any_string}`.
 4. Copy the code from the [handler](./handler.js) file into the note.
 
-This creates an API that can be used to create notes.
+This creates an API that can be used to create notes. The request path, which is to be filled in the shortcut, is  `{your server}/custom/{the any_string saved early}`.
 
 ### Apple device
 

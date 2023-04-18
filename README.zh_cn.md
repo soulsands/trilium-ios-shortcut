@@ -54,10 +54,10 @@ const htmlSanitizer = require("../services/html_sanitizer");
 
 1. 首先新建一个笔记或使用老笔记
 2. 类型改为`JS backend`
-3. 添加一个标签`#customRequestHandler={随意的地址} `
+3. 添加一个标签`#customRequestHandler={随意的字符} `
 4. [handler](./handler.js)文件代码复制进去。
 
-这样就生成了可创建笔记的接口。
+这样就生成了可创建笔记的接口。接口地址为`{trilium访问地址}/custom/${随意的字符}`，这个地址将用于后续填入快捷指令中。
 
 ### 苹果设备
 
