@@ -6,20 +6,20 @@ A Guide to Sending Messages to Trilium via Apple Shortcuts
 
 ## Prerequisites
 
-To use this guide, you will need: 
+To use this guide, you will need:
 
 - An Apple device with the Shortcuts app installed.
 - A Trilium server installed.
 
-This guide has been tested with iOS 15.5, but may also work with iOS 13. Feedback is appreciated. 
+This guide has been tested with iOS 15.5, but may also work with iOS 13. Feedback is appreciated.
 
 ## Features of the shortcut:
 
- This shortcut allows you to: 
+This shortcut allows you to:
 
 - Type and send text content.
 - Select and save any text content for sharing.
-- Support voice input.
+- Support voice input（already supported by the default keyborad, can be turned off).
 - Support for reading clipboard content and sending it; can be configured to enable or disable. After reading the clipboard, four options are available:
   - Clear clipboard
   - Quote clipboard content
@@ -34,7 +34,7 @@ This guide has been tested with iOS 15.5, but may also work with iOS 13. Feedbac
 
 ## Custom API:
 
-To learn more about the custom API, please see the [documentation](https://github.com/zadam/trilium/wiki/Custom-request-handler). 
+To learn more about the custom API, please see the [documentation](https://github.com/zadam/trilium/wiki/Custom-request-handler).
 
 This feature is more powerful than what is displayed in the documentation, as it can directly import files from the project.
 
@@ -46,7 +46,7 @@ This method can be used to access unexposed features, but may also cause some un
 
 ## Custom request handler file
 
- To create a custom request handler file, please use the [handler](./handler.js). This is the most basic method, but you can also create your own logic, such as adding a clone. 
+To create a custom request handler file, please use the [handler](./handler.js). This is the most basic method, but you can also create your own logic, such as adding a clone.
 
 ## Instructions
 
@@ -78,7 +78,7 @@ This shortcut provides very flexible usage methods.
 
 When entering the body text, you can choose to directly input or use quoted input, and the source of the quote can be system input or clipboard content. When using quoted input, the command will use `---` as a separator. You can also modify the quoted input method in the shortcut.
 
-You can add the shortcut to the main screen or to the assistive touch. To add it to the assistive touch, go to `Settings-General-Accessibility-Assistive Touch`.
+You can add the shortcut to the main screen or to the assistive touch. To add it to the assistive touch, go to `Settings-Accessibility-Assistive Touch`.
 
 When using the system share function, you can find the shortcut and add it to your favorites. This way, you can pin it to the top in the edit menu for easier access.
 
