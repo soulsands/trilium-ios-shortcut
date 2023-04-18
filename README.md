@@ -67,6 +67,19 @@ This creates an API that can be used to create notes.
 
 You can now enjoy sending messages to your Trilium server anytime, anywhere!
 
+## Usage Tips
+
+This shortcut provides very flexible usage methods.
+
+- If you just want to quickly send content without dealing with titles and labels, you can enable fixed titles and configure default labels, and then disable the "selectLabels" option.
+- If you want to modify the title and labels before sending, you can disable fixed titles and enable "selectLabels", which will provide a very flexible input experience.
+
+When entering the body text, you can choose to directly input or use quoted input, and the source of the quote can be system input or clipboard content. When using quoted input, the command will use `---` as a separator. You can also modify the quoted input method in the shortcut.
+
+You can add the shortcut to the main screen or to the assistive touch. To add it to the assistive touch, go to `Settings-General-Accessibility-Assistive Touch`.
+
+When using the system share function, you can find the shortcut and add it to your favorites. This way, you can pin it to the top in the edit menu for easier access.
+
 ## Tips for Writing Shortcuts
 
 Writing shortcuts can be inconvenient, as dragging and dropping can be buggy and accidentally deleting a node is easy.
