@@ -1,6 +1,4 @@
 const {req, res} = api;
-let {title, content, labelString} = req.body;
-
 if (req.method == "POST") {
     // try to create under a note with label - messageInbox, you can rename it .
     let messageInbox = api.getNoteWithLabel("messageInbox");
@@ -9,38 +7,91 @@ if (req.method == "POST") {
         messageInbox = api.getDayNote(api.dayjs().format("YYYY-MM-DD"));
     }
 
-    if (!title) {
-        title = "from ios shortcut";
-    }
+    // text note
+    let {content} = req.body;
+    if (content) {
+        let {title, labelString = ""} = req.body;
+        if (!title) {
+            title = "from ios shor tcut";
+        }
 
-    if (!content) {
-        content = '';
-    } else {
-        // normalize \n from message
-        content = content.split('\n').reduce((final, block) => {return final += `<p>${block}</p>`;}, '');
-    }
+        if (!content) {
+            content = "";
+        } else {
+            // normalize \n from message
+            content = content.split("\n").reduce((final, block) => {
+                return (final += `<p>${block}</p>`);
+            }, "");
+        }
 
-    const {note} = api.createNewNote({
-        parentNoteId: messageInbox.noteId,
-        title,
-        content,
-        type: "text"
-    });
-    const labels = labelString.replace(/\n/g, '').split("#");
-    const trimedLabels = labels.map(label => label.trim()).filter(label => label);
-    if (trimedLabels.length) {
-        trimedLabels.forEach((label) => {
-            const [name, value] = label.split(' ');
-
-            if (value) {
-                note.setLabel(name, value);
-            } else {
-                note.setLabel(name);
-            }
+        const {note} = api.createNewNote({
+            parentNoteId: messageInbox.noteId,
+            title,
+            content,
+            type: "text",
         });
-    } else {
-        note.setLabel("from ios shortcut");
-    }
 
-    res.status(200).json({code: 200, msg: "success", params: req.body});
+        const labels = labelString.replace(/\n/g, "").split("#");
+        const trimedLabels = labels
+            .map((label) => label.trim())
+            .filter((label) => label);
+
+        if (trimedLabels.length) {
+            trimedLabels.forEach((label) => {
+                const [name, value] = label.split(" ");
+
+                if (value) {
+                    note.setLabel(name, value);
+                } else {
+                    note.setLabel(name);
+                }
+            });
+        } else {
+            note.setLabel("from ios shortcut");
+        }
+
+        res.status(200).json({code: 200, msg: "success", params: req.body, result: note.getPojo()});
+        // files
+    } else {
+        const multer = require("multer");
+        const importRoute = require("../routes/api/import");
+        const uploadMiddleware = multer().single("upload");
+
+        uploadMiddleware(req, res, () => {
+
+            req.body.taskId = api.randomString(10);;
+            req.body.last = "true";
+            req.params.parentNoteId = messageInbox.noteId;
+
+            const options = {
+                safeImport: "true", //  set to "false" (with quotes) if you don't need it, same below.
+                shrinkImages: "true",
+                textImportedAsText: "true",
+                codeImportedAsCode: "true",
+                explodeArchives: "true",
+                replaceUnderscoresWithSpaces: "true",
+            };
+
+            req.body = {...req.body, ...options};
+
+            importRoute
+                .importToBranch(req)
+                .then((resualt) => {
+                    res.status(200).json({
+                        code: 200,
+                        msg: "success",
+                        params: req.body,
+                        result: resualt,
+                    });
+                })
+                .catch((err) => {
+                    res.status(500).json({
+                        code: 500,
+                        msg: "fail",
+                        params: req.body,
+                        error: err,
+                    });
+                });
+        });
+    }
 }

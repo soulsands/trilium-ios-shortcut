@@ -25,6 +25,8 @@ This shortcut allows you to:
     -   Quote clipboard content
     -   Quote clipboard content (clear after success)
     -   Input directly
+-   Support sending photos
+-   Support sending copied files
 -   Support for configuring fixed titles; fixed titles are used directly after configuration.
 -   Support for configuring optional titles; select "custom" to manually enter the title.
 -   Multiple default labels can be set; notes sent will be accompanied by default labels after being set.
@@ -57,11 +59,14 @@ To create a custom request handler file, please use the [handler](./handler.js).
 3. Add a tag `#customRequestHandler={any_string}`.
 4. Copy the code from the [handler](./handler.js) file into the note.
 
-This creates an API that can be used to create notes. The request path to fill in the shortcut is `{your server}/custom/{the any_string setted early}`.
+This creates an API that can be used to create notes. The request path to fill in the shortcut is `{your web server path}/custom/{the any_string setted early}`.
 
 ### Apple device
 
-1. Open [this link](https://www.icloud.com/shortcuts/a7b7a88e67024d00a3b1d2e43306898b) on your mobile device to get the shortcut.
+1. Open links on your mobile device to get the shortcut.
+   1. [text note](https://www.icloud.com/shortcuts/a7b7a88e67024d00a3b1d2e43306898b) 
+   2. [file note](https://www.icloud.com/shortcuts/338e4922664c4d9cb3e60c78a782ff10)
+
 2. Follow the instructions to install and configure the shortcut.
 3. If prompted for permissions, grant them.
 
