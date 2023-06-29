@@ -56,7 +56,7 @@ To create a custom request handler file, please use the [handler](./handler.js).
 
 1. First create a new note or use an existing one.
 2. Change the type to `JS backend`.
-3. Add a label `#customRequestHandler={any_string}`. e.g `#customRequestHandler=takenote`.
+3. Add a label `#customRequestHandler={any_string}`. e.g. `#customRequestHandler=takenote`.
 4. Copy the code from the [handler](./handler.js) file into the note.
 
 This creates an API that can be used to create notes. The request path to fill in the shortcut is `{your web server path}/custom/{the any_string setted early}`.
