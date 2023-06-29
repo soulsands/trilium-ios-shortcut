@@ -56,7 +56,7 @@ To create a custom request handler file, please use the [handler](./handler.js).
 
 1. First create a new note or use an existing one.
 2. Change the type to `JS backend`.
-3. Add a tag `#customRequestHandler={any_string}`.
+3. Add a label `#customRequestHandler={any_string}`. e.g `#customRequestHandler=takenote`.
 4. Copy the code from the [handler](./handler.js) file into the note.
 
 This creates an API that can be used to create notes. The request path to fill in the shortcut is `{your web server path}/custom/{the any_string setted early}`.
@@ -64,8 +64,9 @@ This creates an API that can be used to create notes. The request path to fill i
 ### Apple device
 
 1. Open links on your mobile device to get the shortcut.
-   1. [text note](https://www.icloud.com/shortcuts/a7b7a88e67024d00a3b1d2e43306898b) 
-   2. [file note](https://www.icloud.com/shortcuts/338e4922664c4d9cb3e60c78a782ff10)
+
+    1. [text note](https://www.icloud.com/shortcuts/a7b7a88e67024d00a3b1d2e43306898b)
+    2. [file note](https://www.icloud.com/shortcuts/338e4922664c4d9cb3e60c78a782ff10)
 
 2. Follow the instructions to install and configure the shortcut.
 3. If prompted for permissions, grant them.
