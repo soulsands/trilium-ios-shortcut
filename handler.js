@@ -28,31 +28,38 @@ if (req.method == "POST") {
                 return (final += `<p>${block}</p>`);
             }, "");
         }
+        let note;
 
-        const { note } = api.createNewNote({
-            parentNoteId: messageInbox.noteId,
-            title,
-            content,
-            type: "text",
-        });
-
-        const labels = labelString.replace(/\n/g, "").split("#");
-        const trimedLabels = labels
-            .map((label) => label.trim())
-            .filter((label) => label);
-
-        if (trimedLabels.length) {
-            trimedLabels.forEach((label) => {
-                const [name, value] = label.split(" ");
-
-                if (value) {
-                    note.setLabel(name, value);
-                } else {
-                    note.setLabel(name);
-                }
-            });
+        const exist = api.searchForNote(`note.title = '${title}'`);
+        if (exist) {
+            note = exist;
+            note.setContent(`${note.getContent()}${content}`);
         } else {
-            note.setLabel("from ios shortcut");
+            note = api.createNewNote({
+                parentNoteId: messageInbox.noteId,
+                title,
+                content,
+                type: "text",
+            }).note;
+
+            const labels = labelString.replace(/\n/g, "").split("#");
+            const trimedLabels = labels
+                .map((label) => label.trim())
+                .filter((label) => label);
+
+            if (trimedLabels.length) {
+                trimedLabels.forEach((label) => {
+                    const [name, value] = label.split(" ");
+
+                    if (value) {
+                        note.setLabel(name, value);
+                    } else {
+                        note.setLabel(name);
+                    }
+                });
+            } else {
+                note.setLabel("from ios shortcut");
+            }
         }
 
         res.status(200).json({
